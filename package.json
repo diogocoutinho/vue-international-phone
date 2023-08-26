@@ -1,7 +1,8 @@
 {
   "name": "vue-international-phone",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "author": "Diogo C. Coutinho",
+  "repository": "https://github.com/diogocoutinho/vue-international-phone.git",
   "private": false,
   "license": "MIT",
   "main": "dist/bibliotecaSimplesVue.umd.js",
