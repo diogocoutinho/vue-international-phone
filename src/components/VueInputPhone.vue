@@ -1,11 +1,10 @@
 <template>
-  <div>
-    <select name="countries" id="countries" v-model="selectedItem">
+  <div style="border: 1px #2c3e50 !important;">
+    <select name="countries" id="countries" v-model="internalSelectedItem">
       <option
-          v-for="country in countries()"
+          v-for="country in countries"
           :key="country.code"
           :value="country"
-          :selected="selectedItem"
       >
         <div class="flight-destination-item-country">
           <span>{{ country.emoji }} {{ country.COUNTRY_CODE }} (+{{ country.code }})</span>
@@ -13,7 +12,7 @@
       </option>
     </select>
     <input
-        v-model="phoneNumber"
+        v-model="internalPhoneNumber"
         @input="formatPhoneNumber"
         @keydown="handleKeyDown"
         placeholder="Phone Number"
@@ -24,38 +23,57 @@
 
 <script>
 import { countries } from "@/assets/countries";
+
 export default {
   name: "VueInputPhone",
-  mounted() {
+  props: {
+    selectedItem: {
+      type: Object,
+      default: () => {
+        return {
+          "code": "55",
+          "name": "Brazil",
+          "flag": "br",
+          "COUNTRY_CODE": "BR",
+          "mask": "(##) #####-####",
+          "emoji": "🇧🇷"
+        };
+      }
+    },
+    phoneNumber: {
+      type: String,
+      default: ''
+    }
   },
   data() {
     return {
-      selectedItem: {
-        code: '55',
-        name: 'Brazil',
-        flag: 'br',
-        COUNTRY_CODE: 'BR',
-        mask: '(##) #####-####',
-        emoji: '🇧🇷'
-      },
-      phoneNumber: '',
+      internalSelectedItem: Object.keys(this.selectedItem).length !== 0 ? this.selectedItem : this.getDefaultCountry(),
+      internalPhoneNumber: this.phoneNumber,
       formattedPhoneNumber: '',
       phoneNumberInvalid: false
     };
   },
-  methods: {
+  computed: {
     countries() {
-      return countries
+      return this.getCountries();
+    },
+  },
+  methods: {
+    getDefaultCountry() {
+      return this.getCountries().find(country => country.code === "55");
+    },
+    getCountries() {
+      return countries;
     },
     formatPhoneNumber() {
-      if (this.phoneNumber === "") {
+      if (this.internalPhoneNumber === "") {
         return;
       }
-      let numericInput = this.phoneNumber.replace(/\D/g, ''); // Remove non-numeric characters
+      let numericInput = this.internalPhoneNumber.replace(/\D/g, '');
       let formattedNumber = "";
       let currentPosition = 0;
 
-      for (const char of this.selectedItem.mask) {
+      for (const char of this.internalSelectedItem.mask) {
         if (char === "#") {
           if (currentPosition < numericInput.length) {
             formattedNumber += numericInput[currentPosition];
@@ -66,53 +84,39 @@ export default {
         }
       }
 
-      this.phoneNumber = formattedNumber;
+      this.internalPhoneNumber = formattedNumber;
 
-      if (
-          !/^\d+$/.test(numericInput)
-      ) {
+      if (!/^\d+$/.test(numericInput)) {
         this.phoneNumberInvalid = true;
       } else {
         this.phoneNumberInvalid = false;
       }
     },
     handleKeyDown(event) {
+      const specialCharacters = ["-", " ", ")", "("];
+
       if (event.key === "Backspace") {
-        // Allow deletion even if cursor is on a mask character
-        if (this.phoneNumber[this.phoneNumber.length - 1] === "-") {
-          this.phoneNumber = this.phoneNumber.slice(0, -1);
-          event.preventDefault();
-        }
-        if (this.phoneNumber[this.phoneNumber.length - 1] === " ") {
-          this.phoneNumber = this.phoneNumber.slice(0, -1);
-          event.preventDefault();
-        }
-        if (this.phoneNumber[this.phoneNumber.length - 1] === ")") {
-          this.phoneNumber = this.phoneNumber.slice(0, -1);
-          event.preventDefault();
-        }
-        if (this.phoneNumber[this.phoneNumber.length - 1] === "(") {
-          this.phoneNumber = this.phoneNumber.slice(0, -1);
+        if (specialCharacters.includes(this.internalPhoneNumber[this.internalPhoneNumber.length - 1])) {
+          this.internalPhoneNumber = this.internalPhoneNumber.slice(0, -1);
           event.preventDefault();
         }
       }
     }
   },
-  computed: {
-    selectedCountryFlag () {
-      console.log(this.selectedItem.flag)
-      return this.selectedItem.flag;
-    }
-  },
   watch: {
-    selectedItem: {
+    internalSelectedItem: {
       handler: function (val) {
         this.formatPhoneNumber();
-        this.$emit("input", val);
+        this.$emit("update:selectedItem", val);
+      },
+      deep: true
+    },
+    internalPhoneNumber: {
+      handler: function (val) {
+        this.$emit("update:phoneNumber", val);
       },
       deep: true
     }
   }
 };
 </script>
-

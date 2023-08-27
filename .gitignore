@@ -1,6 +1,10 @@
 .DS_Store
 node_modules
 /dist
+/src/assets/logo.png
+/src/components/HelloWorld.vue
+/src/App.vue
+/src/main.js
 
 
 # local env files
