@@ -5,7 +5,10 @@ node_modules
 /src/components/HelloWorld.vue
 /src/App.vue
 /src/main.js
-
+src/assets/logo.png
+src/components/HelloWorld.vue
+src/App.vue
+src/main.js
 
 # local env files
 .env.local
