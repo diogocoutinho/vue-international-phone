@@ -1,6 +1,6 @@
 {
   "name": "@diogoccoutinho/vue-international-phone",
-  "version": "0.1.9",
+  "version": "0.1.11",
   "author": "Diogo C. Coutinho",
   "repository": "https://github.com/diogocoutinho/vue-international-phone.git",
   "homepage": "https://diogocoutinho.github.io/vue-international-phone/",
@@ -69,6 +69,6 @@
     "vue-phone-number-input",
     "vue-phone-number-input-component",
     "vue-phone-number-input-component",
-    "vue-phone-number-input-component",
+    "vue-phone-number-input-component"
   ]
 }
