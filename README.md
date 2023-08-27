@@ -13,15 +13,16 @@ npm install @diogoccoutinho/vue-international-phone
 
 ## Usage
 To use the Vue International Phone Input Component, import and register it in your Vue application:
+
 ```vue
+
 <template>
   <div>
     <VueInputPhone
         :selectedItem="selectedCountry"
         :phoneNumber="phoneNumber"
         :placeholder="placeholder"
-        :custom-class="customClass"
-    />
+        :custom-class="customClass"></VueInputPhone>
   </div>
 </template>
 
@@ -55,7 +56,6 @@ To use the Vue International Phone Input Component, import and register it in yo
   "mask": "(##) #####-####",
   "emoji": "🇧🇷"
 }
-
 ```
 - `phoneNumber`: The default phone number.
 - `placeholder`: Placeholder text for the phone number input. Default: "Phone Number"
@@ -66,33 +66,39 @@ To use the Vue International Phone Input Component, import and register it in yo
 - `update:customClass`: Emitted when the custom class is changed.
 ## Examples
 You can customize the appearance of the component by passing the customClass prop:
+
 ```vue
+
 <template>
   <div>
-    <vue-input-phone v-model="phoneNumber" :custom-class="myCustomClass" />
+    <VueInputPhone
+        :selectedItem="selectedCountry"
+        :phoneNumber="phoneNumber"
+        :placeholder="placeholder"
+        :custom-class="customClass"></VueInputPhone>
   </div>
 </template>
 
 <script>
-import VueInputPhone from '@diogoccoutinho/vue-international-phone';
+  import VueInputPhone from '@diogoccoutinho/vue-international-phone';
 
-export default {
-  components: {
-    VueInputPhone,
-  },
-  data() {
-    return {
-      phoneNumber: '',
-      myCustomClass: 'my-custom-phone-input',
-    };
-  },
-};
+  export default {
+    components: {
+      VueInputPhone,
+    },
+    data() {
+      return {
+        phoneNumber: '',
+        myCustomClass: 'my-custom-phone-input',
+      };
+    },
+  };
 </script>
 
 <style>
-.my-custom-phone-input {
-  /* Your custom styles here */
-}
+  .my-custom-phone-input {
+    /* Your custom styles here */
+  }
 </style>
 ```
 ## Notes
