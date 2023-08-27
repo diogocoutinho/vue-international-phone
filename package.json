@@ -53,5 +53,22 @@
   ],
   "files": [
     "dist/*"
+  ],
+  "keywords": [
+    "vue",
+    "vuejs",
+    "vue2",
+    "vue3",
+    "vuejs2",
+    "vuejs3",
+    "vue-component",
+    "vue-international-phone",
+    "vue-phone",
+    "vue-phone-number",
+    "vue-phone-input",
+    "vue-phone-number-input",
+    "vue-phone-number-input-component",
+    "vue-phone-number-input-component",
+    "vue-phone-number-input-component",
   ]
 }
