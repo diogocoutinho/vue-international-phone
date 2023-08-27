@@ -7,6 +7,9 @@
   "license": "MIT",
   "main": "dist/bibliotecaSimplesVue.umd.js",
   "description": "A Vue component for entering and validating international telephone numbers",
+  "publishConfig": {
+    "@<em>diogocoutinho</em>:registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
