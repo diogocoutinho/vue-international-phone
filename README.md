@@ -43,9 +43,10 @@ To use the Vue International Phone Input Component, import and register it in yo
     },
   };
 </script>
-
 ```
+
 ## Props
+
 - `selectedItem`: Object defining the selected country (optional).
 ```json
 {
@@ -57,13 +58,16 @@ To use the Vue International Phone Input Component, import and register it in yo
   "emoji": "🇧🇷"
 }
 ```
+
 - `phoneNumber`: The default phone number.
 - `placeholder`: Placeholder text for the phone number input. Default: "Phone Number"
 - `customClass`: Custom class to style the component. It replaces the default class.
+- 
 ## Events
 - `update:selectedItem`: Emitted when the selected country is changed.
 - `update:phoneNumber`: Emitted when the phone number is changed.
 - `update:customClass`: Emitted when the custom class is changed.
+- 
 ## Examples
 You can customize the appearance of the component by passing the customClass prop:
 
@@ -101,6 +105,7 @@ You can customize the appearance of the component by passing the customClass pro
   }
 </style>
 ```
+
 ## Notes
 Be sure to add the provided CSS styles in the component to achieve the desired layout.
 
