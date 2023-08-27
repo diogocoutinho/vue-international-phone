@@ -158,6 +158,14 @@ export const countries = [
         "COUNTRY_CODE": "BE",
         "mask": "#### ### ###",
         "emoji": "🇧🇪"
+    },
+    {
+        "code": "345",
+        "name": "Cayman Islands",
+        "flag": "ky",
+        "COUNTRY_CODE": "KY",
+        "mask": "###-####",
+        "emoji": "🇰🇾"
     }
 ];
 

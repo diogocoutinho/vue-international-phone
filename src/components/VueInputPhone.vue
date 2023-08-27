@@ -1,28 +1,38 @@
 <template>
-  <div style="border: 1px #2c3e50 !important;">
-    <select name="countries" id="countries" v-model="internalSelectedItem">
-      <option
-          v-for="country in countries"
-          :key="country.code"
-          :value="country"
-      >
-        <div class="flight-destination-item-country">
-          <span>{{ country.emoji }} {{ country.COUNTRY_CODE }} (+{{ country.code }})</span>
-        </div>
-      </option>
-    </select>
-    <input
-        v-model="internalPhoneNumber"
-        @input="formatPhoneNumber"
-        @keydown="handleKeyDown"
-        placeholder="Phone Number"
-    >
-    <p v-if="phoneNumberInvalid" style="color: red;">Invalid phone number</p>
+  <div>
+    <div :class="[customClass, defaultClass]">
+      <div class="select-wrapper">
+        <select name="countries" id="countries" v-model="internalSelectedItem">
+          <option
+              v-for="country in countries"
+              :key="country.code"
+              :value="country"
+          >
+            <div class="flight-destination-item-country">
+              <span>{{ country.emoji }} {{ country.COUNTRY_CODE }} (+{{ country.code }})</span>
+            </div>
+          </option>
+        </select>
+      </div>
+      <div class="input-wrapper">
+        <input
+            id="phone-number"
+            v-model="internalPhoneNumber"
+            @input="formatPhoneNumber"
+            @keydown="handleKeyDown"
+            :placeholder="placeholder"
+        >
+      </div>
+    </div>
+    <p v-if="phoneNumberInvalid" class="vue-international-phone-error">
+      Invalid phone number
+    </p>
   </div>
 </template>
 
 <script>
 import { countries } from "@/assets/countries";
+import "@/assets/component.css";
 
 export default {
   name: "VueInputPhone",
@@ -30,32 +40,39 @@ export default {
     selectedItem: {
       type: Object,
       default: () => {
-        return {
-          "code": "55",
-          "name": "Brazil",
-          "flag": "br",
-          "COUNTRY_CODE": "BR",
-          "mask": "(##) #####-####",
-          "emoji": "🇧🇷"
-        };
+        return this.getDefaultCountry();
       }
     },
     phoneNumber: {
       type: String,
       default: ''
-    }
+    },
+    placeholder: {
+      type: String,
+      default: "Phone Number",
+    },
+    customClass: {
+      type: String,
+      default: () => "",
+    },
   },
   data() {
     return {
-      internalSelectedItem: Object.keys(this.selectedItem).length !== 0 ? this.selectedItem : this.getDefaultCountry(),
+      internalSelectedItem:
+          Object.keys(this.selectedItem).length !== 0
+              ? this.selectedItem
+              : this.getDefaultCountry(),
       internalPhoneNumber: this.phoneNumber,
-      formattedPhoneNumber: '',
+      formattedPhoneNumber: "",
       phoneNumberInvalid: false
     };
   },
   computed: {
     countries() {
       return this.getCountries();
+    },
+    defaultClass() {
+      return 'combined-input';
     },
   },
   methods: {
@@ -116,7 +133,13 @@ export default {
         this.$emit("update:phoneNumber", val);
       },
       deep: true
-    }
+    },
+    customClass: {
+      handler: function (val) {
+        this.$emit("update:customClass", val);
+      },
+      deep: true
+    },
   }
 };
 </script>

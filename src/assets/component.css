@@ -1,0 +1,47 @@
+.combined-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.select-wrapper {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.input-wrapper {
+    flex: 2;
+    position: relative;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.error-text {
+    color: red;
+    margin-top: 5px;
+}
+
+.select-wrapper select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    outline: none;
+}
+
+#countries {
+    border: 0;
+}
+
+#phone-number {
+    border: 0;
+}
