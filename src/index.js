@@ -1,27 +1,25 @@
-import VueInputPhone from './components/VueInputPhone.vue';
+import VueInputPhone from "@/components/VueInputPhone.vue";
 
-// Declare install function executed by Vue.use()
 export function install(Vue) {
-    if (install.installed) return;
-    install.installed = true;
-    Vue.component('vue-input-phone', VueInputPhone);
+  if (install.installed) return;
+  install.installed = true;
+  Vue.component("VueInputPhone", VueInputPhone);
 }
 
-// Create module definition for Vue.use()
 const plugin = {
-    install,
-};
+    install
+}
 
-// Auto-install when vue is found (eg. in browser via <script> tag)
 let GlobalVue = null;
-if (typeof window !== 'undefined') {
+if (typeof window !== "undefined") {
     GlobalVue = window.Vue;
-} else if (typeof global !== 'undefined') {
-    GlobalVue = global.Vue;
+} else if (typeof global !== "undefined") {
+    GlobalVue = global.vue;
 }
 if (GlobalVue) {
     GlobalVue.use(plugin);
 }
 
-// To allow use as module (npm/webpack/etc.) export component
+VueInputPhone.install = install;
+
 export default VueInputPhone;
