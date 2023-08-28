@@ -3,6 +3,7 @@
     <div :class="[customClass, defaultClass]">
       <div class="select-wrapper">
         <div class="select-container">
+          <span @click="toggleModal" class="search-icon">{{activeModal ? '▲' : '▼'}}</span>
           <input
               v-model="searchQuery"
               @input="filterCountries"
@@ -10,7 +11,6 @@
               :style="{ width: searchInputWidth + 'px' }"
               @click="toggleModal"
           />
-          <span class="search-icon">{{activeModal ? '▲' : '▼'}}</span>
           <ul v-if="activeModal" class="country-list">
             <li class="fixed-list-item">
               <input
