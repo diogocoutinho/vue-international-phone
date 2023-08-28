@@ -4,6 +4,12 @@ This is a Vue.js component that provides an international phone input with a cou
 
 ## Installation
 
+You can install the component via Yarn:
+
+```bash
+yarn add @diogoccoutinho/vue-international-phone
+```
+
 You can install the component via npm:
 
 ```bash
