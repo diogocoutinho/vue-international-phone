@@ -166,6 +166,14 @@ export const countries = [
         "COUNTRY_CODE": "KY",
         "mask": "###-####",
         "emoji": "🇰🇾"
+    },
+    {
+        "code": "852",
+        "name": "Hong Kong",
+        "flag": "hk",
+        "COUNTRY_CODE": "HK",
+        "mask": "#### ####",
+        "emoji": "🇭🇰"
     }
 ];
 

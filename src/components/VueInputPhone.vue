@@ -2,17 +2,26 @@
   <div>
     <div :class="[customClass, defaultClass]">
       <div class="select-wrapper">
-        <select name="countries" id="countries" v-model="internalSelectedItem">
-          <option
-              v-for="country in countries"
-              :key="country.code"
-              :value="country"
-          >
-            <div class="flight-destination-item-country">
-              <span>{{ country.emoji }} {{ country.COUNTRY_CODE }} (+{{ country.code }})</span>
-            </div>
-          </option>
-        </select>
+        <div class="select-container">
+          <input
+              v-model="searchQuery"
+              @input="filterCountries"
+              class="search-input"
+              :style="{ width: searchInputWidth + 'px' }"
+              placeholder="Search country"
+              @click="toggleModal"
+          />
+          <ul v-if="activeModal" class="country-list">
+            <li
+                v-for="country in filteredCountries"
+                :key="country.code"
+                class="country-item"
+                @click="selectCountry(country)"
+            >
+              {{country.emoji}} {{ country.COUNTRY_CODE }} (+{{ country.code }})
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="input-wrapper">
         <input
@@ -29,6 +38,8 @@
     </p>
   </div>
 </template>
+
+
 
 <script>
 import { countries } from "@/assets/countries";
@@ -64,7 +75,10 @@ export default {
               : this.getDefaultCountry(),
       internalPhoneNumber: this.phoneNumber,
       formattedPhoneNumber: "",
-      phoneNumberInvalid: false
+      phoneNumberInvalid: false,
+      searchQuery: "",
+      activeModal: false,
+      searchInputWidth: 150,
     };
   },
   computed: {
@@ -73,6 +87,17 @@ export default {
     },
     defaultClass() {
       return 'combined-input';
+    },
+    filteredCountries() {
+      if (this.searchQuery) {
+        const lowercaseQuery = this.searchQuery.toLowerCase();
+        return this.countries.filter(country =>
+            country.code.includes(lowercaseQuery) ||
+            country.name.toLowerCase().includes(lowercaseQuery) ||
+            country.COUNTRY_CODE.toLowerCase().includes(lowercaseQuery)
+        );
+      }
+      return this.countries;
     },
   },
   methods: {
@@ -114,7 +139,28 @@ export default {
           event.preventDefault();
         }
       }
-    }
+    },
+    filterCountries() {
+      this.$forceUpdate();
+    },
+    selectCountry(country) {
+      this.internalSelectedItem = country;
+      this.searchQuery = `${country.emoji} ${country.COUNTRY_CODE} (+${country.code})`;
+      this.activeModal = false;
+    },
+    toggleModal() {
+      if (!this.activeModal) {
+        this.searchQuery = "";
+      }
+      this.activeModal = !this.activeModal;
+      this.calculateSearchInputWidth();
+    },
+    calculateSearchInputWidth() {
+      const longestCountry = this.filteredCountries.reduce((prev, current) =>
+          prev.name.length > current.name.length ? prev : current
+      );
+      this.searchInputWidth = longestCountry.name.length * 10 + 30;
+    },
   },
   watch: {
     internalSelectedItem: {
@@ -126,9 +172,7 @@ export default {
     },
     internalPhoneNumber: {
       handler: function (val) {
-        this.$emit("input", val);
         this.$emit("update:phoneNumber", val);
-        console.log(this.phoneNumber)
       },
       deep: true
     }
