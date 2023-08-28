@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1 id="vue-international-phone-input-component">Vue International Phone Input Component</h1>
+<p>This is a Vue.js component that provides an international phone input with a country selector.</p>
+<h2 id="installation">Installation</h2>
+<p>You can install the component via Yarn:</p>
+<pre><code class="lang-bash"><span class="hljs-selector-tag">yarn</span> <span class="hljs-selector-tag">add</span> @<span class="hljs-keyword">diogoccoutinho</span>/<span class="hljs-keyword">vue</span>-<span class="hljs-keyword">international</span>-<span class="hljs-keyword">phone</span>
+</code></pre>
+<p>You can install the component via npm:</p>
+<pre><code class="lang-bash"><span class="hljs-selector-tag">npm</span> <span class="hljs-selector-tag">install</span> @<span class="hljs-keyword">diogoccoutinho</span>/<span class="hljs-keyword">vue</span>-<span class="hljs-keyword">international</span>-<span class="hljs-keyword">phone</span>
+</code></pre>
+<h2 id="usage">Usage</h2>
+<p>To use the Vue International Phone Input Component, import and register it in your Vue application:</p>
+<pre><code class="lang-vue">
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">VueInputPhone</span>
+        <span class="hljs-attr">:selectedItem</span>=<span class="hljs-string">"selectedItem"</span>
+        <span class="hljs-attr">:phoneNumber</span>=<span class="hljs-string">"phoneNumber"</span>
+        <span class="hljs-attr">:placeholder</span>=<span class="hljs-string">"placeholder"</span>
+        <span class="hljs-attr">:custom-class</span>=<span class="hljs-string">"customClass"</span>
+        @<span class="hljs-attr">update:selectedItem</span>=<span class="hljs-string">"updateSelectedItem"</span>
+        @<span class="hljs-attr">update:phoneNumber</span>=<span class="hljs-string">"updatePhoneNumber"</span>
+    /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">import</span> VueInputPhone <span class="hljs-keyword">from</span> <span class="hljs-string">'@diogoccoutinho/vue-international-phone'</span>;
+  <span class="hljs-keyword">import</span> <span class="hljs-string">'@diogoccoutinho/vue-international-phone/dist/vueInternationalPhone.css'</span>;
+
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+    <span class="hljs-attr">components</span>: {
+      VueInputPhone,
+    },
+    data() {
+      <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">selectedCountry</span>: {},
+        <span class="hljs-attr">phoneNumber</span>: <span class="hljs-string">""</span>, <span class="hljs-comment">// Phone Number</span>
+        placeholder: <span class="hljs-string">"Phone Number"</span>,
+        <span class="hljs-attr">customClass</span>: <span class="hljs-string">"custom-input-phone"</span>,
+      };
+    },
+    <span class="hljs-attr">methods</span>: {
+      updateSelectedItem(item) {
+        <span class="hljs-keyword">this</span>.selectedCountry = item;
+      },
+      updatePhoneNumber(phoneNumber) {
+        <span class="hljs-keyword">this</span>.phoneNumber = phoneNumber;
+      },
+    },
+  };
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<h2 id="props">Props</h2>
+<ul>
+  <li><p><code>selectedItem</code>: Object defining the selected country (optional).</p>
+    <pre><code class="lang-json">{
+<span class="hljs-attr">"code"</span>: <span class="hljs-string">"55"</span>,
+<span class="hljs-attr">"name"</span>: <span class="hljs-string">"Brazil"</span>,
+<span class="hljs-attr">"flag"</span>: <span class="hljs-string">"br"</span>,
+<span class="hljs-attr">"COUNTRY_CODE"</span>: <span class="hljs-string">"BR"</span>,
+<span class="hljs-attr">"mask"</span>: <span class="hljs-string">"(##) #####-####"</span>,
+<span class="hljs-attr">"emoji"</span>: <span class="hljs-string">"🇧🇷"</span>
+}
+</code></pre>
+  </li>
+  <li><p><code>phoneNumber</code>: The default phone number.</p>
+  </li>
+  <li><code>placeholder</code>: Placeholder text for the phone number input. Default: &quot;Phone Number&quot;</li>
+  <li><code>customClass</code>: Custom class to style the component. It replaces the default class.</li>
+  <li><h2 id="events">Events</h2>
+  </li>
+  <li><code>update:selectedItem</code>: Emitted when the selected country is changed.</li>
+  <li><code>update:phoneNumber</code>: Emitted when the phone number is changed.</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<p>You can customize the appearance of the component by passing the customClass prop:</p>
+<pre><code class="lang-vue">
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">VueInputPhone</span>
+        <span class="hljs-attr">:selectedItem</span>=<span class="hljs-string">"selectedItem"</span>
+        <span class="hljs-attr">:phoneNumber</span>=<span class="hljs-string">"phoneNumber"</span>
+        <span class="hljs-attr">:placeholder</span>=<span class="hljs-string">"placeholder"</span>
+        <span class="hljs-attr">:custom-class</span>=<span class="hljs-string">"customClass"</span>
+        @<span class="hljs-attr">update:selectedItem</span>=<span class="hljs-string">"updateSelectedItem"</span>
+        @<span class="hljs-attr">update:phoneNumber</span>=<span class="hljs-string">"updatePhoneNumber"</span>
+    /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">import</span> VueInputPhone <span class="hljs-keyword">from</span> <span class="hljs-string">'@diogoccoutinho/vue-international-phone'</span>;
+  <span class="hljs-keyword">import</span> <span class="hljs-string">'@diogoccoutinho/vue-international-phone/dist/vueInternationalPhone.css'</span>;
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+    <span class="hljs-attr">components</span>: {
+      VueInputPhone,
+    },
+    data() {
+      <span class="hljs-keyword">return</span> {
+        <span class="hljs-attr">phoneNumber</span>: <span class="hljs-string">''</span>,
+        <span class="hljs-attr">myCustomClass</span>: <span class="hljs-string">'my-custom-phone-input'</span>,
+      };
+    },
+    <span class="hljs-attr">methods</span>: {
+      updateSelectedItem(item) {
+        <span class="hljs-keyword">this</span>.selectedItem = item;
+      },
+      updatePhoneNumber(phoneNumber) {
+        <span class="hljs-keyword">this</span>.phoneNumber = phoneNumber;
+      },
+    },
+  };
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+  <span class="hljs-selector-class">.my-custom-phone-input</span> {
+    <span class="hljs-comment">/* Your custom styles here */</span>
+  }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+</code></pre>
+<h2 id="notes">Notes</h2>
+<p>Be sure to add the provided CSS styles in the component to achieve the desired layout.</p>
+<h2 id="contribution">Contribution</h2>
+<p>Contributions are welcome! Feel free to submit pull requests or report issues.</p>
+<h2 id="license">License</h2>
+<p>This project is licensed under the MIT License - see the <a href="https://opensource.org/licenses/MIT">LICENSE</a> file for details.</p>
+</body>
+</html>
