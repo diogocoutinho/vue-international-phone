@@ -103,11 +103,7 @@ export default {
 
       this.internalPhoneNumber = formattedNumber;
 
-      if (!/^\d+$/.test(numericInput)) {
-        this.phoneNumberInvalid = true;
-      } else {
-        this.phoneNumberInvalid = false;
-      }
+      this.phoneNumberInvalid = !/^\d+$/.test(numericInput);
     },
     handleKeyDown(event) {
       const specialCharacters = ["-", " ", ")", "("];
@@ -130,16 +126,12 @@ export default {
     },
     internalPhoneNumber: {
       handler: function (val) {
+        this.$emit("input", val);
         this.$emit("update:phoneNumber", val);
+        console.log(this.phoneNumber)
       },
       deep: true
-    },
-    customClass: {
-      handler: function (val) {
-        this.$emit("update:customClass", val);
-      },
-      deep: true
-    },
+    }
   }
 };
 </script>

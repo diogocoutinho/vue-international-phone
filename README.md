@@ -19,10 +19,13 @@ To use the Vue International Phone Input Component, import and register it in yo
 <template>
   <div>
     <VueInputPhone
-        :selectedItem="selectedCountry"
+        :selectedItem="selectedItem"
         :phoneNumber="phoneNumber"
         :placeholder="placeholder"
-        :custom-class="customClass"></VueInputPhone>
+        :custom-class="customClass"
+        @update:selectedItem="updateSelectedItem"
+        @update:phoneNumber="updatePhoneNumber"
+    />
   </div>
 </template>
 
@@ -41,6 +44,14 @@ To use the Vue International Phone Input Component, import and register it in yo
         placeholder: "Phone Number",
         customClass: "custom-input-phone",
       };
+    },
+    methods: {
+      updateSelectedItem(item) {
+        this.selectedCountry = item;
+      },
+      updatePhoneNumber(phoneNumber) {
+        this.phoneNumber = phoneNumber;
+      },
     },
   };
 </script>
@@ -67,8 +78,7 @@ To use the Vue International Phone Input Component, import and register it in yo
 ## Events
 - `update:selectedItem`: Emitted when the selected country is changed.
 - `update:phoneNumber`: Emitted when the phone number is changed.
-- `update:customClass`: Emitted when the custom class is changed.
-- 
+ 
 ## Examples
 You can customize the appearance of the component by passing the customClass prop:
 
@@ -77,10 +87,13 @@ You can customize the appearance of the component by passing the customClass pro
 <template>
   <div>
     <VueInputPhone
-        :selectedItem="selectedCountry"
+        :selectedItem="selectedItem"
         :phoneNumber="phoneNumber"
         :placeholder="placeholder"
-        :custom-class="customClass"></VueInputPhone>
+        :custom-class="customClass"
+        @update:selectedItem="updateSelectedItem"
+        @update:phoneNumber="updatePhoneNumber"
+    />
   </div>
 </template>
 
@@ -96,6 +109,14 @@ You can customize the appearance of the component by passing the customClass pro
         phoneNumber: '',
         myCustomClass: 'my-custom-phone-input',
       };
+    },
+    methods: {
+      updateSelectedItem(item) {
+        this.selectedItem = item;
+      },
+      updatePhoneNumber(phoneNumber) {
+        this.phoneNumber = phoneNumber;
+      },
     },
   };
 </script>
