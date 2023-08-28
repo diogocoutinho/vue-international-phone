@@ -1,12 +1,12 @@
 {
   "name": "@diogoccoutinho/vue-international-phone",
-  "version": "0.1.15",
+  "version": "0.0.1",
   "author": "Diogo C. Coutinho",
   "repository": "https://github.com/diogocoutinho/vue-international-phone.git",
   "homepage": "https://diogocoutinho.github.io/vue-international-phone/",
   "private": false,
   "license": "MIT",
-  "main": "dist/vueInternationalPhone.umd.js",
+  "main": "dist/VueInputPhone.umd.js",
   "description": "A Vue component for entering and validating international telephone numbers",
   "publishConfig": {
     "@<em>diogocoutinho</em>:registry": "https://npm.pkg.github.com"
@@ -15,8 +15,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "build:npm": "vue-cli-service build --target lib --name vueInternationalPhone src/index.js",
-    "build:stats": "vue-cli-service build --target lib --name vueInternationalPhone src/index.js --report-json"
+    "build:npm": "vue-cli-service build --target lib --name VueInputPhone src/index.js",
+    "build:stats": "vue-cli-service build --target lib --name VueInputPhone src/index.js --report-json"
   },
   "dependencies": {
     "core-js": "^3.8.3",
@@ -69,6 +69,14 @@
     "vue-phone-number-input",
     "vue-phone-number-input-component",
     "vue-phone-number-input-component",
-    "vue-phone-number-input-component"
+    "vue-phone-number-input-component",
+    "vue",
+    "telephone",
+    "phone",
+    "vue tel input",
+    "phone input",
+    "telephone input",
+    "input",
+    "international phone"
   ]
 }

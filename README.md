@@ -28,6 +28,7 @@ To use the Vue International Phone Input Component, import and register it in yo
 
 <script>
   import VueInputPhone from '@diogoccoutinho/vue-international-phone';
+  import '@diogoccoutinho/vue-international-phone/dist/vueInternationalPhone.css';
 
   export default {
     components: {
@@ -85,7 +86,7 @@ You can customize the appearance of the component by passing the customClass pro
 
 <script>
   import VueInputPhone from '@diogoccoutinho/vue-international-phone';
-
+  import '@diogoccoutinho/vue-international-phone/dist/vueInternationalPhone.css';
   export default {
     components: {
       VueInputPhone,
