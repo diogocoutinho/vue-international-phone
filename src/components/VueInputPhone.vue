@@ -2,28 +2,35 @@
   <div>
     <div :class="[customClass, defaultClass]">
       <div class="select-wrapper">
-        <div class="select-container">
-          <span @click="toggleModal" class="search-icon">{{activeModal ? '▲' : '▼'}}</span>
+        <div
+            class="select-container"
+            @focus="activeModal = true"
+        >
           <input
               v-model="searchQuery"
               @input="filterCountries"
               class="search-input"
+              :class="{ active: activeModal }"
               :style="{ width: searchInputWidth + 'px' }"
               @click="toggleModal"
+              placeholder="Search..."
           />
+          <span @click="toggleModal" class="search-icon">{{ activeModal ? '▲' : '▼' }}</span>
           <ul v-if="activeModal" class="country-list">
-            <li class="fixed-list-item">
+            <li class="input-search">
               <input
                   v-model="searchQuery"
                   @input="filterCountries"
+                  class="search-input input-search"
+                  :class="{ active: activeModal }"
+                  :style="{ width: searchInputWidth + 'px' }"
                   placeholder="Search..."
-                  class="input-search country-item"
               />
             </li>
             <li
-                v-for="country in filteredCountries"
+                v-for="(country, index) in filteredCountries"
                 :key="country.code"
-                class="country-item"
+                :class="{ 'country-item': true, 'fixed-list-item': index === 0 }"
                 @click="selectCountry(country)"
             >
               {{ country.emoji }} {{ country.COUNTRY_CODE }} (+{{ country.code }})
@@ -83,7 +90,11 @@ export default {
     };
   },
   mounted() {
+    document.addEventListener("click", this.handleClickOutside);
     this.searchQuery = `${this.getDefaultCountry()['emoji']} ${this.getDefaultCountry()['COUNTRY_CODE']} (+${this.getDefaultCountry()['code']})`;
+  },
+  beforeDestroy() {
+    document.removeEventListener("click", this.handleClickOutside);
   },
   computed: {
     countries() {
@@ -135,6 +146,12 @@ export default {
       this.internalPhoneNumber = formattedNumber;
 
       this.phoneNumberInvalid = !/^\d+$/.test(numericInput);
+    },
+    handleClickOutside(event) {
+      const isClickedInsideComponent = this.$el.contains(event.target);
+      if (!isClickedInsideComponent) {
+        this.activeModal = false;
+      }
     },
     handleKeyDown(event) {
       const specialCharacters = ["-", " ", ")", "("];

@@ -1,3 +1,5 @@
+/* Your global CSS styles here */
+
 .combined-input {
     display: flex;
     align-items: center;
@@ -5,8 +7,7 @@
     padding: 5px;
     border-radius: 4px;
     position: relative;
-    width: 100%;
-    max-width: 400px;
+    max-width: 100%;
     margin: 0 auto;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: white;
@@ -21,6 +22,7 @@
     flex: 1;
     position: relative;
     padding-left: 10px;
+    max-width: calc(100% - 40px);
 }
 
 .input-wrapper input {
@@ -41,7 +43,7 @@
 
 .select-container {
     position: relative;
-    width: 100px;
+    width: 120px;
 }
 
 .search-input {
@@ -52,6 +54,7 @@
     outline: none;
     min-width: 100px;
     text-align: left;
+    transition: width 0.3s ease; /* Add transition for smooth width change */
 }
 
 .search-input.active {
@@ -92,7 +95,7 @@
 
 .search-icon {
     position: absolute;
-    right: -20%;
+    right: -1%;
     top: 25%;
     transform: translateX(-50%);
     cursor: pointer;
@@ -110,7 +113,7 @@
     max-width: 85%;
 }
 
-.input.input-search.active {
+.input-search.active {
     border: none !important;
     border-radius: 4px;
     font-size: 14px;
@@ -121,4 +124,31 @@
     top: 0;
     z-index: 2;
     background-color: white;
+}
+
+/* Responsive Styles */
+
+@media screen and (max-width: 600px) {
+    .combined-input {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .select-wrapper,
+    .input-wrapper {
+        flex: auto;
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .country-list {
+        width: 100%;
+        left: 0;
+    }
+
+    .search-icon {
+        right: 5px;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
 }
