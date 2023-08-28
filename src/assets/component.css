@@ -20,6 +20,7 @@
 .input-wrapper {
     flex: 1;
     position: relative;
+    padding-left: 10px;
 }
 
 .input-wrapper input {
@@ -50,6 +51,7 @@
     font-size: 14px;
     outline: none;
     min-width: 100px;
+    text-align: left;
 }
 
 .search-input.active {
@@ -61,7 +63,7 @@
 .country-list {
     position: absolute;
     top: calc(100% + 5px);
-    left: 0;
+    left: -6px;
     width: 120px;
     max-height: 150px;
     overflow-y: auto;
@@ -74,6 +76,7 @@
     padding: 0;
     margin: 0;
     text-align: left;
+    overflow-x: hidden;
 }
 
 .country-item {
@@ -85,4 +88,37 @@
 
 .country-item:hover {
     background-color: #f0f0f0;
+}
+
+.search-icon {
+    position: absolute;
+    right: -20%;
+    top: 25%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: -5px;
+}
+
+.input-search {
+    padding: 8px;
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    text-align: left;
+    max-width: 85%;
+}
+
+.input.input-search.active {
+    border: none !important;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.fixed-list-item {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: white;
 }
