@@ -1,14 +1,31 @@
-name: Build Vue
-on: [push]
+name: Publish to GitHub Packages
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  build_vue:
+  publish:
     runs-on: ubuntu-latest
-    name: Build Vue
+
     steps:
-    - uses: actions/checkout@v2
-    - id: Build-Vue
-      uses: xRealNeon/VuePagesAction@1.0.1
-      with:
-        username: 'diogoccoutinho'
-        reponame: 'vue-international-phone'
-        token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the package
+        run: npm run build
+
+      - name: Log in to GitHub Packages
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
+
+      - name: Publish to GitHub Packages
+        run: npm publish --access public
