@@ -15,7 +15,7 @@
   "main": "dist/VueInputPhone.umd.js",
   "description": "A Vue component for entering and validating international telephone numbers",
   "publishConfig": {
-    "@diogocoutinho:registry": "https://npm.pkg.github.com"
+    "@diogoccoutinho:registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
