@@ -1,8 +1,11 @@
 # Vue International Phone Input Component
 
 This is a Vue.js component that provides an international phone input with a country selector and mask.
+<details>
+<summary>
+Getting Started
+</summary>
 
-## Getting Started
 ### Installation
 
 You can install the component via Yarn:
@@ -16,7 +19,10 @@ You can install the component via npm:
 ```bash
 npm install @diogoccoutinho/vue-international-phone
 ```
-### Register the component
+</details>
+
+<details>
+<summary>Register the component</summary> 
 
 #### Global Registration
 ```js
@@ -43,6 +49,7 @@ export default {
   }
 }
 ```
+</details>
 
 ## Usage
 To use the Vue International Phone Input Component, import and register it in your Vue application:
