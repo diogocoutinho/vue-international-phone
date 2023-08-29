@@ -1,9 +1,9 @@
-name: Publish to GitHub Packages
+name: Publish Package
 
 on:
   push:
-    branches:
-      - master
+    tags:
+      - 'v*' # Trigger on version tags
 
 jobs:
   publish:
@@ -16,16 +16,15 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '14' # Use the Node.js version you need
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build the package
-        run: npm run build
+      - name: Build package
+        run: npm run build:npm
 
-      - name: Log in to GitHub Packages
-        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
-
-      - name: Publish to GitHub Packages
-        run: npm publish --access public
+      - name: Publish to npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
