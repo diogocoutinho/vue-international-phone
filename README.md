@@ -1,6 +1,6 @@
 # Vue International Phone Input Component
 
-This is a Vue.js component that provides an international phone input with a country selector.
+This is a Vue.js component that provides an international phone input with a country selector and mask.
 
 ## Getting Started
 ### Installation
@@ -74,7 +74,10 @@ To use the Vue International Phone Input Component, import and register it in yo
 
 - `phoneNumber`: The default phone number.
 - `placeholder`: Placeholder text for the phone number input. Default: "Phone Number" (optional).
-- `customClass`: Custom class to style the component. It replaces the default class (optional). 
+- `customClass`: Custom class to style the component. It replaces the default class (optional).
+- `openIcon`: Icon to open the country selector. Default: "▾" (optional).
+- `closeIcon`: Icon to close the country selector. Default: "▴" (optional).
+- `activeModal`: Boolean to control the visibility of the country selector. Default: false (optional).
 -
 ## Events
 - `update:selectedItem`: Emitted when the selected country is changed.

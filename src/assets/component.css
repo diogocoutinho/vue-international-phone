@@ -96,7 +96,7 @@
 .search-icon {
     position: absolute;
     right: -1%;
-    top: 25%;
+    top: 10%;
     transform: translateX(-50%);
     cursor: pointer;
     font-size: 16px;

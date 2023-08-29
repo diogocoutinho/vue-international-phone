@@ -1,60 +1,50 @@
 <template>
-  <div>
-    <div :class="[customClass, defaultClass]">
-      <div class="select-wrapper">
-        <div
-            class="select-container"
-            @focus="activeModal = true"
-        >
-          <input
-              id="country-code"
-              v-model="selectedCountryCode"
-              @input="filterCountries"
-              class="search-input"
-              :class="{ active: activeModal }"
-              :style="{ width: searchInputWidth + 'px' }"
-              @click="toggleModal"
-              placeholder="Search..."
-          />
-          <span @click="toggleModal" class="search-icon">{{ activeModal ? '▲' : '▼' }}</span>
-          <ul v-if="activeModal" class="country-list">
-            <li class="input-search">
-              <input
-                  v-if="activeModal"
-                  v-model="searchQuery"
-                  @input="filterCountries"
-                  class="search-input input-search"
-                  :class="{ active: activeModal }"
-                  :style="{ width: searchInputWidth + 'px' }"
-                  placeholder="Search..."
-                  ref="searchInput"
-              />
-            </li>
-            <li
-                v-for="(country, index) in filteredCountries"
-                :key="country.code"
-                :class="{ 'country-item': true, 'fixed-list-item': index === 0 }"
-                @click="selectCountry(country)"
-            >
-              {{ country.emoji }} {{ country.COUNTRY_CODE }} (+{{ country.code }})
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="input-wrapper">
+  <div :class="[customClass, 'combined-input']">
+    <div class="select-wrapper">
+      <div class="select-container" @focus="activeModal = true">
         <input
-            id="phone-number"
-            v-model="internalPhoneNumber"
-            @input="formatPhoneNumber"
-            @keydown="handleKeyDown"
-            :placeholder="placeholder"
-            ref="phoneNumberInput"
-        >
+            v-model="selectedCountryCode"
+            @input="filterCountries"
+            class="search-input"
+            :class="{ active: activeModal }"
+            :style="{ width: searchInputWidth + 'px' }"
+            @click="toggleModal"
+            placeholder="Search..."
+            ref="countryCodeInput"
+        />
+        <span @click="toggleModal" class="search-icon">{{ modalIcon }}</span>
+        <ul v-if="activeModal" class="country-list">
+          <li class="input-search">
+            <input
+                v-model="searchQuery"
+                @input="filterCountries"
+                class="search-input input-search"
+                :class="{ active: activeModal }"
+                :style="{ width: searchInputWidth + 'px' }"
+                placeholder="Search..."
+                ref="searchInput"
+            />
+          </li>
+          <li
+              v-for="(country, index) in filteredCountries"
+              :key="country.code"
+              :class="{ 'country-item': true, 'fixed-list-item': index === 0 }"
+              @click="selectCountry(country)"
+          >
+            {{ country.emoji }} {{ country.COUNTRY_CODE }} +{{ country.code }}
+          </li>
+        </ul>
       </div>
     </div>
-    <p v-if="phoneNumberInvalid" class="vue-international-phone-error">
-      Invalid phone number
-    </p>
+    <div class="input-wrapper">
+      <input
+          v-model="internalPhoneNumber"
+          @input="formatPhoneNumber"
+          @keydown="handleKeyDown"
+          :placeholder="placeholder"
+          ref="phoneNumberInput"
+      >
+    </div>
   </div>
 </template>
 
@@ -67,7 +57,7 @@ export default {
   props: {
     selectedItem: {
       type: Object,
-      default: () => this.getDefaultCountry(),
+      default: () => {},
     },
     phoneNumber: {
       type: String,
@@ -81,34 +71,39 @@ export default {
       type: String,
       default: "",
     },
+    openIcon: {
+      type: String,
+      default: "▲", // Default icon for open modal
+    },
+    closedIcon: {
+      type: String,
+      default: "▼", // Default icon for closed modal
+    },
   },
   data() {
     return {
-      internalSelectedItem: Object.keys(this.selectedItem).length
-          ? this.selectedItem
-          : this.getDefaultCountry(),
-      internalPhoneNumber: this.phoneNumber,
-      formattedPhoneNumber: "",
+      internalSelectedItem: {},
+      internalPhoneNumber: "",
       phoneNumberInvalid: false,
       searchQuery: "",
       activeModal: false,
       searchInputWidth: 150,
-      selectedCountryCode: `${this.getDefaultCountry()['emoji']} ${this.getDefaultCountry()['COUNTRY_CODE']} (+${this.getDefaultCountry()['code']})`
+      selectedCountryCode: "",
     };
   },
   created() {
     document.addEventListener("click", this.handleClickOutside);
-    this.searchQuery = `${this.getDefaultCountry()['emoji']} ${this.getDefaultCountry()['COUNTRY_CODE']} (+${this.getDefaultCountry()['code']})`;
+    this.setDefaultCountry();
   },
   beforeDestroy() {
     document.removeEventListener("click", this.handleClickOutside);
   },
   computed: {
-    countries() {
-      return this.getCountries();
+    modalIcon() {
+      return this.activeModal ? this.openIcon : this.closedIcon;
     },
-    defaultClass() {
-      return "combined-input";
+    countries() {
+      return countries;
     },
     filteredCountries() {
       if (this.searchQuery) {
@@ -124,8 +119,10 @@ export default {
     },
   },
   methods: {
-    getDefaultCountry() {
-      return this.getCountries().find((country) => country.code === "55");
+    setDefaultCountry() {
+      this.internalSelectedItem = this.getCountries().find((country) => country.code === "55") || {};
+      this.selectedCountryCode = `${this.internalSelectedItem.emoji} ${this.internalSelectedItem.COUNTRY_CODE} +${this.internalSelectedItem.code}`;
+      this.searchQuery = this.selectedCountryCode;
     },
     getCountries() {
       return countries;
@@ -188,12 +185,9 @@ export default {
     },
     selectCountry(country) {
       this.internalSelectedItem = country;
-      this.searchQuery = `${country.emoji} ${country.COUNTRY_CODE} (+${country.code})`;
-      this.selectedCountryCode = `${country.emoji} ${country.COUNTRY_CODE} (+${country.code})`;
-      this.$nextTick(() => {
-        this.$refs.phoneNumberInput.focus();
-      });
+      this.selectedCountryCode = `${country.emoji} ${country.COUNTRY_CODE} +${country.code}`;
       this.activeModal = false;
+      this.focusPhoneNumberInput();
     },
     toggleModal() {
       if (!this.activeModal) {
@@ -210,6 +204,11 @@ export default {
         this.$refs.searchInput.focus();
       });
     },
+    focusPhoneNumberInput() {
+      this.$nextTick(() => {
+        this.$refs.phoneNumberInput.focus();
+      });
+    },
     calculateSearchInputWidth() {
       const longestCountry = this.filteredCountries.reduce((prev, current) =>
           prev.name.length > current.name.length ? prev : current ? current : []
@@ -222,6 +221,7 @@ export default {
       handler: function (val) {
         this.formatPhoneNumber();
         this.$emit("update:selectedItem", val);
+        console.log(this.$emit("update:selectedItem", val))
       },
       deep: true,
     },
