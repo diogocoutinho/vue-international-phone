@@ -124,7 +124,6 @@ export default {
   },
   methods: {
     getDefaultCountry() {
-      console.log("getDefaultCountry: " + this.getCountries().find((country) => country.code === "55"));
       return this.getCountries().find((country) => country.code === "55");
     },
     getCountries() {
