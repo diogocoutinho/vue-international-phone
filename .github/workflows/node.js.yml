@@ -25,7 +25,7 @@ jobs:
         run: npm run build
 
       - name: Log in to GitHub Packages
-        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.VUE_INPUT_TOKEN }}" >> ~/.npmrc
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.VUE_INPUT_TOKEN2 }}" >> ~/.npmrc
 
       - name: Publish to GitHub Packages
         run: npm publish --access public
