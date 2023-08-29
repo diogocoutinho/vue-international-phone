@@ -7,7 +7,8 @@
             @focus="activeModal = true"
         >
           <input
-              v-model="searchQuery"
+              id="country-code"
+              v-model="selectedCountryCode"
               @input="filterCountries"
               class="search-input"
               :class="{ active: activeModal }"
@@ -46,6 +47,7 @@
             @input="formatPhoneNumber"
             @keydown="handleKeyDown"
             :placeholder="placeholder"
+            ref="phoneNumberInput"
         >
       </div>
     </div>
@@ -81,13 +83,16 @@ export default {
   },
   data() {
     return {
-      internalSelectedItem: this.selectedItem,
+      internalSelectedItem: Object.keys(this.selectedItem).length
+          ? this.selectedItem
+          : this.getDefaultCountry(),
       internalPhoneNumber: this.phoneNumber,
       formattedPhoneNumber: "",
       phoneNumberInvalid: false,
       searchQuery: "",
       activeModal: false,
       searchInputWidth: 150,
+      selectedCountryCode: `${this.getDefaultCountry()['emoji']} ${this.getDefaultCountry()['COUNTRY_CODE']} (+${this.getDefaultCountry()['code']})`
     };
   },
   created() {
@@ -129,7 +134,9 @@ export default {
       if (this.internalPhoneNumber === "") {
         return;
       }
+
       const numericInput = this.internalPhoneNumber.replace(/\D/g, "");
+      const numericMask = this.internalSelectedItem.mask.replace(/\D/g, ""); // Remove caracteres não numéricos da máscara
       let formattedNumber = "";
       let currentPosition = 0;
 
@@ -137,6 +144,14 @@ export default {
         if (char === "#") {
           if (currentPosition < numericInput.length) {
             formattedNumber += numericInput[currentPosition];
+            currentPosition++;
+          } else {
+            break; // Interrompe o loop quando o limite da máscara é atingido
+          }
+        } else if (/\d/.test(char)) {
+          // Ignora os caracteres numéricos na máscara
+          formattedNumber += char;
+          if (currentPosition < numericMask.length && numericMask[currentPosition] === char) {
             currentPosition++;
           }
         } else {
@@ -155,7 +170,7 @@ export default {
       }
     },
     handleKeyDown(event) {
-      const specialCharacters = ["-", " ", ")", "("];
+      const specialCharacters = ["-", " ", ")", "(", "0"];
 
       if (event.key === "Backspace") {
         if (
@@ -174,6 +189,10 @@ export default {
     selectCountry(country) {
       this.internalSelectedItem = country;
       this.searchQuery = `${country.emoji} ${country.COUNTRY_CODE} (+${country.code})`;
+      this.selectedCountryCode = `${country.emoji} ${country.COUNTRY_CODE} (+${country.code})`;
+      this.$nextTick(() => {
+        this.$refs.phoneNumberInput.focus();
+      });
       this.activeModal = false;
     },
     toggleModal() {
@@ -188,7 +207,7 @@ export default {
     },
     calculateSearchInputWidth() {
       const longestCountry = this.filteredCountries.reduce((prev, current) =>
-          prev.name.length > current.name.length ? prev : current
+          prev.name.length > current.name.length ? prev : current ? current : []
       );
       this.searchInputWidth = longestCountry.name.length * 10 + 30;
     },

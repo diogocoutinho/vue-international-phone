@@ -21,7 +21,6 @@
 .input-wrapper {
     flex: 1;
     position: relative;
-    padding-left: 10px;
     max-width: calc(100% - 40px);
 }
 
