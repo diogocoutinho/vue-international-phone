@@ -20,6 +20,7 @@
           <ul v-if="activeModal" class="country-list">
             <li class="input-search">
               <input
+                  v-if="activeModal"
                   v-model="searchQuery"
                   @input="filterCountries"
                   class="search-input input-search"
@@ -200,6 +201,11 @@ export default {
       }
       this.activeModal = !this.activeModal;
       this.calculateSearchInputWidth();
+      if (this.activeModal) {
+        this.focusSearchInput();
+      }
+    },
+    focusSearchInput() {
       this.$nextTick(() => {
         this.$refs.searchInput.focus();
       });
