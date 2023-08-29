@@ -57,7 +57,7 @@ export default {
   props: {
     selectedItem: {
       type: Object,
-      default: () => {},
+      default: () => this.getDefaultCountry(),
     },
     phoneNumber: {
       type: String,
@@ -83,7 +83,7 @@ export default {
   data() {
     return {
       internalSelectedItem: {},
-      internalPhoneNumber: "",
+      internalPhoneNumber: this.phoneNumber,
       phoneNumberInvalid: false,
       searchQuery: "",
       activeModal: false,
