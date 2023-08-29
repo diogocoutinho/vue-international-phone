@@ -25,6 +25,7 @@
                   :class="{ active: activeModal }"
                   :style="{ width: searchInputWidth + 'px' }"
                   placeholder="Search..."
+                  ref="searchInput"
               />
             </li>
             <li
@@ -89,7 +90,7 @@ export default {
       searchInputWidth: 150,
     };
   },
-  mounted() {
+  created() {
     document.addEventListener("click", this.handleClickOutside);
     this.searchQuery = `${this.getDefaultCountry()['emoji']} ${this.getDefaultCountry()['COUNTRY_CODE']} (+${this.getDefaultCountry()['code']})`;
   },
@@ -181,6 +182,9 @@ export default {
       }
       this.activeModal = !this.activeModal;
       this.calculateSearchInputWidth();
+      this.$nextTick(() => {
+        this.$refs.searchInput.focus();
+      });
     },
     calculateSearchInputWidth() {
       const longestCountry = this.filteredCountries.reduce((prev, current) =>

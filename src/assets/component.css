@@ -104,13 +104,13 @@
 }
 
 .input-search {
-    padding: 8px;
+    padding-left: 8px;
     border: 1px solid #f0f0f0;
     border-radius: 4px;
     font-size: 14px;
     outline: none;
     text-align: left;
-    max-width: 85%;
+    width: 100%;
 }
 
 .input-search.active {
