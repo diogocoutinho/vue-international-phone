@@ -1,10 +1,10 @@
 {
   "name": "@diogoccoutinho/vue-international-phone",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "author": "Diogo C. Coutinho",
   "repository": {
     "type": "git",
-    "url": "https://github.com/diogocoutinho/vue-international-phone.git"
+    "url": "git+https://github.com/diogocoutinho/vue-international-phone.git"
   },
   "bugs": {
     "url": "https://github.com/diogocoutinho/vue-international-phone/issues"
