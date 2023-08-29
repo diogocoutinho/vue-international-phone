@@ -2,7 +2,8 @@
 
 This is a Vue.js component that provides an international phone input with a country selector.
 
-## Installation
+## Getting Started
+### Installation
 
 You can install the component via Yarn:
 
@@ -15,17 +16,78 @@ You can install the component via npm:
 ```bash
 npm install @diogoccoutinho/vue-international-phone
 ```
+### Register the component
 
+#### Global Registration
+```js
+import Vue from 'vue'
+import VueInputPhone from '@diogoccoutinho/vue-international-phone'
+import '@diogoccoutinho/vue-international-phone/dist/VueInternationalPhone.css'
+
+Vue.use(VueInputPhone)
+
+new Vue({
+  // ...
+}).$mount('#app')
+```
+
+#### Local Registration
+```js
+import VueInputPhone from '@diogoccoutinho/vue-international-phone'
+import '@diogoccoutinho/vue-international-phone/dist/VueInternationalPhone.css'
+
+export default {
+  // ...
+  components: {
+    VueInputPhone
+  }
+}
+```
 
 ## Usage
 To use the Vue International Phone Input Component, import and register it in your Vue application:
 
 ```vue
+<VueInputPhone
+    :selectedItem="selectedCountry"
+    :phoneNumber="phoneNumber"
+    :placeholder="placeholder"
+    :custom-class="customClass"
+    @update:selectedItem="updateSelectedItem"
+    @update:phoneNumber="updatePhoneNumber"
+/>
+```
 
+## Props
+
+- `selectedItem`: Object defining the selected country (optional).
+```json
+{
+      "code": "55",
+      "name": "Brazil",
+      "flag": "br",
+      "COUNTRY_CODE": "BR",
+      "mask": "(##) #####-####",
+      "emoji": "🇧🇷"
+}
+```
+
+- `phoneNumber`: The default phone number.
+- `placeholder`: Placeholder text for the phone number input. Default: "Phone Number" (optional).
+- `customClass`: Custom class to style the component. It replaces the default class (optional). 
+-
+## Events
+- `update:selectedItem`: Emitted when the selected country is changed.
+- `update:phoneNumber`: Emitted when the phone number is changed.
+
+## Examples
+You can customize the appearance of the component by passing the customClass prop:
+
+```vue
 <template>
   <div>
     <VueInputPhone
-        :selectedItem="selectedItem"
+        :selectedItem="selectedCountry"
         :phoneNumber="phoneNumber"
         :placeholder="placeholder"
         :custom-class="customClass"
@@ -38,7 +100,6 @@ To use the Vue International Phone Input Component, import and register it in yo
 <script>
   import VueInputPhone from '@diogoccoutinho/vue-international-phone';
   import '@diogoccoutinho/vue-international-phone/dist/vueInternationalPhone.css';
-
   export default {
     components: {
       VueInputPhone,
@@ -48,77 +109,12 @@ To use the Vue International Phone Input Component, import and register it in yo
         selectedCountry: {},
         phoneNumber: "", // Phone Number
         placeholder: "Phone Number",
-        customClass: "custom-input-phone",
+        customClass: "my-custom-phone-input",
       };
     },
     methods: {
       updateSelectedItem(item) {
         this.selectedCountry = item;
-      },
-      updatePhoneNumber(phoneNumber) {
-        this.phoneNumber = phoneNumber;
-      },
-    },
-  };
-</script>
-```
-
-## Props
-
-- `selectedItem`: Object defining the selected country (optional).
-```json
-{
-  "code": "55",
-  "name": "Brazil",
-  "flag": "br",
-  "COUNTRY_CODE": "BR",
-  "mask": "(##) #####-####",
-  "emoji": "🇧🇷"
-}
-```
-
-- `phoneNumber`: The default phone number.
-- `placeholder`: Placeholder text for the phone number input. Default: "Phone Number"
-- `customClass`: Custom class to style the component. It replaces the default class.
-- 
-## Events
-- `update:selectedItem`: Emitted when the selected country is changed.
-- `update:phoneNumber`: Emitted when the phone number is changed.
- 
-## Examples
-You can customize the appearance of the component by passing the customClass prop:
-
-```vue
-
-<template>
-  <div>
-    <VueInputPhone
-        :selectedItem="selectedItem"
-        :phoneNumber="phoneNumber"
-        :placeholder="placeholder"
-        :custom-class="customClass"
-        @update:selectedItem="updateSelectedItem"
-        @update:phoneNumber="updatePhoneNumber"
-    />
-  </div>
-</template>
-
-<script>
-  import VueInputPhone from '@diogoccoutinho/vue-international-phone';
-  import '@diogoccoutinho/vue-international-phone/dist/vueInternationalPhone.css';
-  export default {
-    components: {
-      VueInputPhone,
-    },
-    data() {
-      return {
-        phoneNumber: '',
-        myCustomClass: 'my-custom-phone-input',
-      };
-    },
-    methods: {
-      updateSelectedItem(item) {
-        this.selectedItem = item;
       },
       updatePhoneNumber(phoneNumber) {
         this.phoneNumber = phoneNumber;
@@ -143,4 +139,3 @@ Contributions are welcome! Feel free to submit pull requests or report issues.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/licenses/MIT) file for details.
-
