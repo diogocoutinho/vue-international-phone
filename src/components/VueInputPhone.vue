@@ -221,7 +221,6 @@ export default {
       handler: function (val) {
         this.formatPhoneNumber();
         this.$emit("update:selectedItem", val);
-        console.log(this.$emit("update:selectedItem", val))
       },
       deep: true,
     },
