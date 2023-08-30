@@ -1,6 +1,9 @@
 # Vue International Phone Input Component
 
 This is a Vue.js component that provides an international phone input with a country selector and mask.
+
+![Funcionando](https://media.licdn.com/dms/image/D4D22AQGohnpnldDduw/feedshare-shrink_2048_1536/0/1693367734357?e=1696464000&v=beta&t=op-KEocFEHs28iC5bFBdwecvFAlAtOQlFWkvq-NwdQE)
+
 <details>
 <summary>
 Getting Started
