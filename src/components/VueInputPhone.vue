@@ -6,32 +6,38 @@
             v-model="selectedCountryCode"
             @input="filterCountries"
             class="search-input"
-            :class="{ active: activeModal }"
-            :style="{ width: searchInputWidth + 'px' }"
+            :class="{ active: activeModal, 'input-auto-width': selectedCountryCode  }"
             @click="toggleModal"
             placeholder="Search..."
             ref="countryCodeInput"
         />
         <span @click="toggleModal" class="search-icon">{{ modalIcon }}</span>
         <ul v-if="activeModal" class="country-list">
-          <li class="input-search">
+          <li class="input-search fixed-search-input">
             <input
                 v-model="searchQuery"
                 @input="filterCountries"
-                class="search-input input-search"
-                :class="{ active: activeModal }"
-                :style="{ width: searchInputWidth + 'px' }"
+                class="search-input input-search fixed-search-input"
+                :class="{ active: activeModal, 'input-auto-width': selectedCountryCode }"
                 placeholder="Search..."
                 ref="searchInput"
             />
           </li>
           <li
-              v-for="(country, index) in filteredCountries"
+              v-for="(country) in filteredCountries"
               :key="country.code"
-              :class="{ 'country-item': true, 'fixed-list-item': index === 0 }"
+              :class="{ 'country-item': true}"
               @click="selectCountry(country)"
           >
-            {{ country.emoji }} {{ country.COUNTRY_CODE }} +{{ country.code }}
+            <span v-if="showFlag">
+              {{ getFlag(country.emoji) }}
+            </span>
+            <span v-if="showCountryCode">
+              {{ getCountryCode(country.COUNTRY_CODE) }}
+            </span>
+            <span v-if="showCode">
+              {{ getCode(country.code) }}
+            </span>
           </li>
         </ul>
       </div>
@@ -79,6 +85,18 @@ export default {
       type: String,
       default: "▼", // Default icon for closed modal
     },
+    showFlag: {
+      type: Boolean,
+      default: true,
+    },
+    showCountryCode: {
+      type: Boolean,
+      default: true,
+    },
+    showCode: {
+      type: Boolean,
+      default: true,
+    },
   },
   data() {
     return {
@@ -119,9 +137,12 @@ export default {
     },
   },
   methods: {
+    getDefaultCountry() {
+      return this.getCountries().find((country) => country.code === "55") || {};
+    },
     setDefaultCountry() {
-      this.internalSelectedItem = this.getCountries().find((country) => country.code === "55") || {};
-      this.selectedCountryCode = `${this.internalSelectedItem.emoji} ${this.internalSelectedItem.COUNTRY_CODE} +${this.internalSelectedItem.code}`;
+      this.internalSelectedItem = this.getDefaultCountry() || {};
+      this.selectedCountryCode = `${this.getFlag(this.internalSelectedItem.emoji)} ${this.getCountryCode(this.internalSelectedItem.COUNTRY_CODE)} ${this.getCode(this.internalSelectedItem.code)}`;
       this.searchQuery = this.selectedCountryCode;
     },
     getCountries() {
@@ -143,10 +164,9 @@ export default {
             formattedNumber += numericInput[currentPosition];
             currentPosition++;
           } else {
-            break; // Interrompe o loop quando o limite da máscara é atingido
+            break;
           }
         } else if (/\d/.test(char)) {
-          // Ignora os caracteres numéricos na máscara
           formattedNumber += char;
           if (currentPosition < numericMask.length && numericMask[currentPosition] === char) {
             currentPosition++;
@@ -185,7 +205,7 @@ export default {
     },
     selectCountry(country) {
       this.internalSelectedItem = country;
-      this.selectedCountryCode = `${country.emoji} ${country.COUNTRY_CODE} +${country.code}`;
+      this.selectedCountryCode = `${this.getFlag(country.emoji)} ${this.getCountryCode(country.COUNTRY_CODE)} ${this.getCode(country.code)}`;
       this.activeModal = false;
       this.focusPhoneNumberInput();
     },
@@ -214,6 +234,15 @@ export default {
           prev.name.length > current.name.length ? prev : current ? current : []
       );
       this.searchInputWidth = longestCountry.name.length * 10 + 30;
+    },
+    getFlag(emoji) {
+      return this.showFlag ? emoji : '';
+    },
+    getCountryCode(countryCode) {
+      return this.showCountryCode ? countryCode : '';
+    },
+    getCode(code) {
+      return this.showCode ? `+${code}` : '';
     },
   },
   watch: {

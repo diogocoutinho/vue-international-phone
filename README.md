@@ -84,7 +84,9 @@ To use the Vue International Phone Input Component, import and register it in yo
 - `customClass`: Custom class to style the component. It replaces the default class (optional).
 - `openIcon`: Icon to open the country selector. Default: "▾" (optional).
 - `closeIcon`: Icon to close the country selector. Default: "▴" (optional).
-- `activeModal`: Boolean to control the visibility of the country selector. Default: false (optional).
+- `showFlag`: Boolean to control the visibility of the flags in the country selector. Default: true (optional).
+- `showCountryCode`: Boolean to control the visibility of the country code in the country selector. Default: true (optional).
+- `showCode`: Boolean to control the visibility of the country code in the phone number input. Default: true (optional).
 -
 ## Events
 - `update:selectedItem`: Emitted when the selected country is changed.
@@ -149,3 +151,9 @@ Contributions are welcome! Feel free to submit pull requests or report issues.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/licenses/MIT) file for details.
+
+<footer>
+  <p align="center">
+    Made with ❤️ by <a href="https://github.com/diogocoutinho">Diogo Coutinho</a>
+  </p>
+</footer>
