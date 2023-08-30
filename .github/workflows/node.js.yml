@@ -20,7 +20,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Publish Package
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-        run: npm publish --registry=https://npm.pkg.github.com
+      - name: Build package
+        run: npm run build:npm
+
+      - name: Publish package to GitHub Packages
+        run: echo "//npm.pkg.github.com/:_authToken=\${{ secrets.NODE_AUTH_TOKEN }}" >> ~/.npmrc && npm publish
