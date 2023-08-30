@@ -23,7 +23,7 @@ jobs:
       - name: Build package
         run: npm run build:npm
 
-      - name: Publish package to GitHub Packages
+      - name: Publish Package
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-        run: echo "//npm.pkg.github.com/:_authToken=\${{ secrets.NODE_AUTH_TOKEN }}" >> ~/.npmrc && npm publish
+        run: npm publish --registry=https://npm.pkg.github.com
