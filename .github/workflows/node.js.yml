@@ -26,4 +26,4 @@ jobs:
       - name: Publish package to GitHub Packages
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
-        run: echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> ~/.npmrc && npm publish --registry=https://npm.pkg.github.com
+        run: echo "//npm.pkg.github.com/:_authToken=${secrets.NODE_AUTH_TOKEN}"
