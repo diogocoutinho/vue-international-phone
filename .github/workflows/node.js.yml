@@ -23,5 +23,5 @@ jobs:
 
       - name: Publish Package
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.VUE_INPUT_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.VUE_INPUT_TOKEN2 }}
         run: npm publish --registry=https://registry.npmjs.org
