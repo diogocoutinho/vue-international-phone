@@ -17,7 +17,7 @@ jobs:
           node-version: '14'
 
       - name: Configurar npm
-        run: echo "//npm.pkg.github.com/:_authToken=\${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
+        run: echo "//npm.pkg.github.com/:_authToken=\${{ secrets.NPM_AUTH_TOKEN }}\" > ~/.npmrc
 
       - name: Instalar dependências
         run: npm install
