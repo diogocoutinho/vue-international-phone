@@ -16,7 +16,7 @@
   "style": "dist/VueInputPhone.css",
   "description": "A Vue component for entering and validating international telephone numbers",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "@diogocoutinho:registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
