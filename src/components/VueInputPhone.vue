@@ -103,6 +103,10 @@ export default {
     document.addEventListener("click", this.handleClickOutside);
     this.setDefaultCountry();
   },
+  mounted() {
+    this.$emit("update:phoneNumber", this.internalPhoneNumber);
+    this.$emit("update:selectedItem", this.internalSelectedItem);
+  },
   beforeDestroy() {
     document.removeEventListener("click", this.handleClickOutside);
   },
