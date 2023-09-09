@@ -4,12 +4,12 @@
 <span align="center">
 
 [![npm version](https://badge.fury.io/js/%40diogoccoutinho%2Fvue-international-phone.svg)](https://badge.fury.io/js/%40diogoccoutinho%2Fvue-international-phone)
-[![GitHub version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&r=r&ts=1683906897&type=6e&v=0.0.28&x2=0)](https://badge.fury.io/gh/diogocoutinho%2Fvue-international-phone)
+[![GitHub version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&r=r&ts=1683906897&type=6e&v=0.0.32&x2=0)](https://badge.fury.io/gh/diogocoutinho%2Fvue-international-phone)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Issues](https://img.shields.io/github/issues/diogocoutinho/vue-international-phone.svg)](https://github.com/diogocoutinho/vue-international-phone/issues)
 [![Stars](https://img.shields.io/github/stars/diogocoutinho/vue-international-phone.svg)](https://github.com/diogocoutinho/vue-international-phone/stargazers)
 [![Forks](https://img.shields.io/github/forks/diogocoutinho/vue-international-phone.svg)](https://githhub.com/diogocoutinho/vue-international-phone/network/members)
-[![Github Package Registry](https://img.shields.io/badge/Github%20Package%20Registry-0.0.28-blue)](https://github.com/diogocoutinho/vue-international-phone/pkgs/npm/vue-international-phone)
+[![Github Package Registry](https://img.shields.io/badge/Github%20Package%20Registry-0.0.32-default)](https://github.com/diogocoutinho/vue-international-phone/pkgs/npm/vue-international-phone)
 ![Downloads](https://img.shields.io/npm/dt/@diogoccoutinho/vue-international-phone)
 ![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 ![Last commit](https://img.shields.io/github/last-commit/diogocoutinho/vue-international-phone.svg)

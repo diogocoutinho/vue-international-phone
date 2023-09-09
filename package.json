@@ -1,5 +1,5 @@
 {
-  "name": "@diogoccoutinho/vue-international-phone",
+  "name": "@diogocoutinho/vue-international-phone",
   "version": "0.0.32",
   "author": "Diogo C. Coutinho",
   "repository": {
@@ -15,6 +15,9 @@
   "main": "dist/VueInputPhone.umd.js",
   "style": "dist/VueInputPhone.css",
   "description": "A Vue component for entering and validating international telephone numbers",
+  "publishConfig": {
+    "@diogocoutinho:registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
