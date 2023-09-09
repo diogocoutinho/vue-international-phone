@@ -26,6 +26,6 @@ jobs:
 
       - name: Publish Package
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-        run: export NODE_AUTH_TOKEN=${ secrets.NPM_AUTH_TOKEN } && npm config set '//npm.pkg.github.com/:_authToken=' "${NODE_AUTH_TOKEN}" && npm publish
+          GITHUB_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        run: npm publish
 
