@@ -4,7 +4,7 @@ export const countries = [
         "name": "Afghanistan",
         "flag": "af",
         "COUNTRY_CODE": "AF",
-        "mask": "",
+        "mask": "##-###-####",
         "emoji": "🇦🇫"
     },
     {
@@ -12,7 +12,7 @@ export const countries = [
         "name": "Albania",
         "flag": "al",
         "COUNTRY_CODE": "AL",
-        "mask": "###",
+        "mask": "(###) ###-####",
         "emoji": "🇦🇱"
     },
     {
@@ -20,7 +20,7 @@ export const countries = [
         "name": "Algeria",
         "flag": "dz",
         "COUNTRY_CODE": "DZ",
-        "mask": "###",
+        "mask": "##-###-####",
         "emoji": "🇩🇿"
     },
     {
@@ -28,7 +28,7 @@ export const countries = [
         "name": "Andorra",
         "flag": "ad",
         "COUNTRY_CODE": "AD",
-        "mask": "###",
+        "mask": "###-###",
         "emoji": "🇦🇩"
     },
     {
@@ -36,7 +36,7 @@ export const countries = [
         "name": "Angola",
         "flag": "ao",
         "COUNTRY_CODE": "AO",
-        "mask": "###",
+        "mask": "(###)###-###",
         "emoji": "🇦🇴"
     },
     {
@@ -60,7 +60,7 @@ export const countries = [
         "name": "Argentina",
         "flag": "ar",
         "COUNTRY_CODE": "AR",
-        "mask": "####",
+        "mask": "(##) ####-####",
         "emoji": "🇦🇷"
     },
     {
@@ -68,7 +68,7 @@ export const countries = [
         "name": "Armenia",
         "flag": "am",
         "COUNTRY_CODE": "AM",
-        "mask": "########",
+        "mask": "(##) ###-####",
         "emoji": "🇦🇲"
     },
     {
@@ -84,7 +84,7 @@ export const countries = [
         "name": "Ascension Island",
         "flag": "ac",
         "COUNTRY_CODE": "AC",
-        "mask": "",
+        "mask": "####",
         "emoji": "🇦🇨"
     },
     {
@@ -100,7 +100,7 @@ export const countries = [
         "name": "Australian External Territories",
         "flag": "au",
         "COUNTRY_CODE": "AU",
-        "mask": "",
+        "mask": "1##-###",
         "emoji": "🇦🇺"
     },
     {
@@ -108,7 +108,7 @@ export const countries = [
         "name": "Austria",
         "flag": "at",
         "COUNTRY_CODE": "AT",
-        "mask": "####",
+        "mask": "(###)###-####",
         "emoji": "🇦🇹"
     },
     {
@@ -116,7 +116,7 @@ export const countries = [
         "name": "Azerbaijan",
         "flag": "az",
         "COUNTRY_CODE": "AZ",
-        "mask": "##",
+        "mask": "## ### ## ##",
         "emoji": "🇦🇿"
     },
     {
@@ -132,7 +132,7 @@ export const countries = [
         "name": "Bangladesh",
         "flag": "bd",
         "COUNTRY_CODE": "BD",
-        "mask": "###",
+        "mask": "## #### ####",
         "emoji": "🇧🇩"
     },
     {
@@ -140,7 +140,7 @@ export const countries = [
         "name": "Belarus",
         "flag": "by",
         "COUNTRY_CODE": "BY",
-        "mask": "##",
+        "mask": "(##)###-##-##",
         "emoji": "🇧🇾"
     },
     {
@@ -148,7 +148,7 @@ export const countries = [
         "name": "Belgium",
         "flag": "be",
         "COUNTRY_CODE": "BE",
-        "mask": "## ######",
+        "mask": "(###)###-###",
         "emoji": "🇧🇪"
     },
     {
@@ -180,7 +180,7 @@ export const countries = [
         "name": "Bhutan",
         "flag": "bt",
         "COUNTRY_CODE": "BT",
-        "mask": "",
+        "mask": "##-#######",
         "emoji": "🇧🇹"
     },
     {
@@ -220,7 +220,7 @@ export const countries = [
         "name": "British Indian Ocean Territory",
         "flag": "io",
         "COUNTRY_CODE": "IO",
-        "mask": "",
+        "mask": "####-####",
         "emoji": "🇮🇴"
     },
     {
@@ -324,7 +324,7 @@ export const countries = [
         "name": "China",
         "flag": "cn",
         "COUNTRY_CODE": "CN",
-        "mask": "",
+        "mask": "(###) ####-####",
         "emoji": "🇨🇳"
     },
     {
@@ -332,7 +332,7 @@ export const countries = [
         "name": "Christmas Island",
         "flag": "cx",
         "COUNTRY_CODE": "CX",
-        "mask": "",
+        "mask": "### ### ###",
         "emoji": "🇨🇽"
     },
     {
@@ -340,7 +340,7 @@ export const countries = [
         "name": "Cocos (Keeling) Islands",
         "flag": "cc",
         "COUNTRY_CODE": "CC",
-        "mask": "",
+        "mask": "## ### ###",
         "emoji": "🇨🇨"
     },
     {
@@ -348,7 +348,7 @@ export const countries = [
         "name": "Colombia",
         "flag": "co",
         "COUNTRY_CODE": "CO",
-        "mask": "####",
+        "mask": "###-###-####",
         "emoji": "🇨🇴"
     },
     {
@@ -356,7 +356,7 @@ export const countries = [
         "name": "Comoros",
         "flag": "km",
         "COUNTRY_CODE": "KM",
-        "mask": "## ## ##",
+        "mask": "### ## ##",
         "emoji": "🇰🇲"
     },
     {
@@ -372,7 +372,7 @@ export const countries = [
         "name": "Congo (DRC)",
         "flag": "cd",
         "COUNTRY_CODE": "CD",
-        "mask": "",
+        "mask": "## ### ####",
         "emoji": "🇨🇩"
     },
     {
@@ -380,7 +380,7 @@ export const countries = [
         "name": "Cook Islands",
         "flag": "ck",
         "COUNTRY_CODE": "CK",
-        "mask": "",
+        "mask": "####-####",
         "emoji": "🇨🇰"
     },
     {
@@ -412,7 +412,7 @@ export const countries = [
         "name": "Curaçao",
         "flag": "cw",
         "COUNTRY_CODE": "CW",
-        "mask": "",
+        "mask": "###-####",
         "emoji": "🇨🇼"
     },
     {
@@ -444,7 +444,7 @@ export const countries = [
         "name": "Diego Garcia",
         "flag": "dg",
         "COUNTRY_CODE": "DG",
-        "mask": "",
+        "mask": "## ### ####",
         "emoji": "🇩🇬"
     },
     {
@@ -476,7 +476,7 @@ export const countries = [
         "name": "East Timor",
         "flag": "tl",
         "COUNTRY_CODE": "TL",
-        "mask": "",
+        "mask": "### ### ###",
         "emoji": "🇹🇱"
     },
     {
@@ -540,7 +540,7 @@ export const countries = [
         "name": "Falkland Islands",
         "flag": "fk",
         "COUNTRY_CODE": "FK",
-        "mask": "",
+        "mask": "###-####",
         "emoji": "🇫🇰"
     },
     {
@@ -548,7 +548,7 @@ export const countries = [
         "name": "Faroe Islands",
         "flag": "fo",
         "COUNTRY_CODE": "FO",
-        "mask": "",
+        "mask": "### ## ##",
         "emoji": "🇫🇴"
     },
     {
@@ -580,7 +580,7 @@ export const countries = [
         "name": "French Antilles",
         "flag": "mq",
         "COUNTRY_CODE": "MQ",
-        "mask": "",
+        "mask": "## ## ## ## ##",
         "emoji": "🇲🇶"
     },
     {
@@ -588,7 +588,7 @@ export const countries = [
         "name": "French Guiana",
         "flag": "gf",
         "COUNTRY_CODE": "GF",
-        "mask": "",
+        "mask": "## ## ## ## ##",
         "emoji": "🇬🇫"
     },
     {
@@ -596,7 +596,7 @@ export const countries = [
         "name": "French Polynesia",
         "flag": "pf",
         "COUNTRY_CODE": "PF",
-        "mask": "",
+        "mask": "### ## ## ##",
         "emoji": "🇵🇫"
     },
     {
@@ -660,7 +660,7 @@ export const countries = [
         "name": "Greenland",
         "flag": "gl",
         "COUNTRY_CODE": "GL",
-        "mask": "",
+        "mask": "### ### ##",
         "emoji": "🇬🇱"
     },
     {
@@ -676,7 +676,7 @@ export const countries = [
         "name": "Guadeloupe",
         "flag": "gp",
         "COUNTRY_CODE": "GP",
-        "mask": "",
+        "mask": "(###)###-###",
         "emoji": "🇬🇵"
     },
     {
@@ -700,7 +700,7 @@ export const countries = [
         "name": "Guernsey",
         "flag": "gg",
         "COUNTRY_CODE": "GG",
-        "mask": "",
+        "mask": "### ## ####",
         "emoji": "🇬🇬"
     },
     {
@@ -812,7 +812,7 @@ export const countries = [
         "name": "Isle of Man",
         "flag": "im",
         "COUNTRY_CODE": "IM",
-        "mask": "",
+        "mask": "###-###-####",
         "emoji": "🇮🇲"
     },
     {
@@ -860,7 +860,7 @@ export const countries = [
         "name": "Jersey",
         "flag": "je",
         "COUNTRY_CODE": "JE",
-        "mask": "",
+        "mask": "### ## ####",
         "emoji": "🇯🇪"
     },
     {
@@ -988,7 +988,7 @@ export const countries = [
         "name": "Macau SAR",
         "flag": "mo",
         "COUNTRY_CODE": "MO",
-        "mask": "",
+        "mask": "#### ####",
         "emoji": "🇲🇴"
     },
     {
@@ -1060,7 +1060,7 @@ export const countries = [
         "name": "Martinique",
         "flag": "mq",
         "COUNTRY_CODE": "MQ",
-        "mask": "",
+        "mask": "# ## ## ## ##",
         "emoji": "🇲🇶"
     },
     {
@@ -1084,7 +1084,7 @@ export const countries = [
         "name": "Mayotte",
         "flag": "yt",
         "COUNTRY_CODE": "YT",
-        "mask": "",
+        "mask": "## ## ## ##",
         "emoji": "🇾🇹"
     },
     {
@@ -1180,7 +1180,7 @@ export const countries = [
         "name": "Nauru",
         "flag": "nr",
         "COUNTRY_CODE": "NR",
-        "mask": "",
+        "mask": "## ### ####",
         "emoji": "🇳🇷"
     },
     {
@@ -1204,7 +1204,7 @@ export const countries = [
         "name": "New Caledonia",
         "flag": "nc",
         "COUNTRY_CODE": "NC",
-        "mask": "",
+        "mask": "### ## ##",
         "emoji": "🇳🇨"
     },
     {
@@ -1244,7 +1244,7 @@ export const countries = [
         "name": "Niue",
         "flag": "nu",
         "COUNTRY_CODE": "NU",
-        "mask": "",
+        "mask": "########",
         "emoji": "🇳🇺"
     },
     {
@@ -1252,7 +1252,7 @@ export const countries = [
         "name": "Norfolk Island",
         "flag": "nf",
         "COUNTRY_CODE": "NF",
-        "mask": "",
+        "mask": "### ###",
         "emoji": "🇳🇫"
     },
     {
@@ -1260,7 +1260,47 @@ export const countries = [
         "name": "North Korea",
         "flag": "kp",
         "COUNTRY_CODE": "KP",
-        "mask": "",
+        "mask": "191-###-####",
+        "emoji": "🇰🇵"
+    },
+    {
+        "code": "850",
+        "name": "North Korea",
+        "flag": "kp",
+        "COUNTRY_CODE": "KP",
+        "mask": "##-###-###",
+        "emoji": "🇰🇵"
+    },
+    {
+        "code": "850",
+        "name": "North Korea",
+        "flag": "kp",
+        "COUNTRY_CODE": "KP",
+        "mask": "###-####-###",
+        "emoji": "🇰🇵"
+    },
+    {
+        "code": "850",
+        "name": "North Korea",
+        "flag": "kp",
+        "COUNTRY_CODE": "KP",
+        "mask": "###-###",
+        "emoji": "🇰🇵"
+    },
+    {
+        "code": "850",
+        "name": "North Korea",
+        "flag": "kp",
+        "COUNTRY_CODE": "KP",
+        "mask": "####-####",
+        "emoji": "🇰🇵"
+    },
+    {
+        "code": "850",
+        "name": "North Korea",
+        "flag": "kp",
+        "COUNTRY_CODE": "KP",
+        "mask": "####-#############",
         "emoji": "🇰🇵"
     },
     {
@@ -1388,7 +1428,7 @@ export const countries = [
         "name": "Réunion",
         "flag": "re",
         "COUNTRY_CODE": "RE",
-        "mask": "",
+        "mask": "## ## ## ## ##",
         "emoji": "🇷🇪"
     },
     {
@@ -1420,7 +1460,7 @@ export const countries = [
         "name": "Saint Helena",
         "flag": "sh",
         "COUNTRY_CODE": "SH",
-        "mask": "",
+        "mask": "### ## ####",
         "emoji": "🇸🇭"
     },
     {
@@ -1444,7 +1484,7 @@ export const countries = [
         "name": "Saint Martin",
         "flag": "mf",
         "COUNTRY_CODE": "MF",
-        "mask": "",
+        "mask": "###-##-##-##",
         "emoji": "🇲🇫"
     },
     {
@@ -1452,7 +1492,7 @@ export const countries = [
         "name": "Saint Pierre and Miquelon",
         "flag": "pm",
         "COUNTRY_CODE": "PM",
-        "mask": "",
+        "mask": "# ## ## ##",
         "emoji": "🇵🇲"
     },
     {
@@ -1540,7 +1580,7 @@ export const countries = [
         "name": "Sint Maarten",
         "flag": "sx",
         "COUNTRY_CODE": "SX",
-        "mask": "",
+        "mask": "#####",
         "emoji": "🇸🇽"
     },
     {
@@ -1596,7 +1636,7 @@ export const countries = [
         "name": "South Sudan",
         "flag": "ss",
         "COUNTRY_CODE": "SS",
-        "mask": "",
+        "mask": "### ### ##",
         "emoji": "🇸🇸"
     },
     {
@@ -1636,7 +1676,7 @@ export const countries = [
         "name": "Svalbard and Jan Mayen",
         "flag": "sj",
         "COUNTRY_CODE": "SJ",
-        "mask": "",
+        "mask": "#### ## ##",
         "emoji": "🇸🇯"
     },
     {
@@ -1724,7 +1764,7 @@ export const countries = [
         "name": "Tokelau",
         "flag": "tk",
         "COUNTRY_CODE": "TK",
-        "mask": "",
+        "mask": "### ## ##",
         "emoji": "🇹🇰"
     },
     {
@@ -1780,7 +1820,7 @@ export const countries = [
         "name": "Tuvalu",
         "flag": "tv",
         "COUNTRY_CODE": "TV",
-        "mask": "",
+        "mask": "### ## ##",
         "emoji": "🇹🇻"
     },
     {
@@ -1860,7 +1900,7 @@ export const countries = [
         "name": "Vatican City",
         "flag": "va",
         "COUNTRY_CODE": "VA",
-        "mask": "",
+        "mask": "## #### ####",
         "emoji": "🇻🇦"
     },
     {
@@ -1884,7 +1924,7 @@ export const countries = [
         "name": "Wallis and Futuna",
         "flag": "wf",
         "COUNTRY_CODE": "WF",
-        "mask": "",
+        "mask": "### ## ##",
         "emoji": "🇼🇫"
     },
     {
@@ -1892,7 +1932,7 @@ export const countries = [
         "name": "Western Sahara",
         "flag": "eh",
         "COUNTRY_CODE": "EH",
-        "mask": "",
+        "mask": "###-###-###",
         "emoji": "🇪🇭"
     },
     {

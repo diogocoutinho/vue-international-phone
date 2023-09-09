@@ -7,20 +7,18 @@
     padding: 5px;
     border-radius: 4px;
     position: relative;
-    max-width: 100%;
+    max-width: fit-content;
     margin: 0 auto;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: white;
 }
 
 .select-wrapper {
-    flex: 1;
     position: relative;
     display: inline-block;
 }
 
 .input-wrapper {
-    flex: 1;
     position: relative;
     max-width: calc(100% - 40px);
 }
@@ -78,7 +76,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+    z-index: 999;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -144,13 +142,11 @@
 
 @media screen and (max-width: 600px) {
     .combined-input {
-        flex-direction: column;
         align-items: stretch;
     }
 
     .select-wrapper,
     .input-wrapper {
-        flex: auto;
         width: 100%;
         margin: 5px 0;
         display: block;

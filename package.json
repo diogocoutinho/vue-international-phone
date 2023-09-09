@@ -1,6 +1,6 @@
 {
   "name": "@diogocoutinho/vue-international-phone",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "author": "Diogo C. Coutinho",
   "repository": {
     "type": "git",
@@ -13,6 +13,7 @@
   "private": false,
   "license": "MIT",
   "main": "dist/VueInputPhone.umd.js",
+  "style": "dist/VueInputPhone.css",
   "description": "A Vue component for entering and validating international telephone numbers",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -22,7 +23,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "build:npm": "vue-cli-service build --target lib --name VueInputPhone src/index.js",
-    "build:stats": "vue-cli-service build --target lib --name VueInputPhone src/index.js --report-json"
+    "build:stats": "vue-cli-service build --target lib --name VueInputPhone src/index.js --report-json",
+    "analyze": "vue-cli-service build --mode production --report"
   },
   "dependencies": {
     "core-js": "^3.8.3",

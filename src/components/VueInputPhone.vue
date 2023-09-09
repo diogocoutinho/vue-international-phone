@@ -31,7 +31,11 @@
     </div>
     <div class="input-wrapper">
       <input v-model="internalPhoneNumber" @input="formatPhoneNumber" @keydown="handleKeyDown" :placeholder="placeholder" ref="phoneNumberInput" />
+
     </div>
+    <span class="input-icon">
+      <i v-if="inputIconClass" :class="inputIconClass"></i>
+    </span>
   </div>
 </template>
 
@@ -77,6 +81,10 @@ export default {
     showCode: {
       type: Boolean,
       default: true,
+    },
+    inputIconClass: {
+      type: String,
+      default: "",
     },
   },
   data() {
@@ -166,7 +174,7 @@ export default {
       }
     },
     handleKeyDown(event) {
-      const specialCharacters = ["-", " ", ")", "(", "0"];
+      const specialCharacters = ["-", " ", ")", "(", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
       if (event.key === "Backspace") {
         if (

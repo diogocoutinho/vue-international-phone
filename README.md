@@ -1,6 +1,32 @@
-# Vue International Phone Input Component
 
-This is a Vue.js component that provides an international phone input with a country selector and mask.
+# 📞 [Vue International Phone Input Component](https://www.npmjs.com/package/@diogoccoutinho/vue-international-phone) 📞
+
+<span align="center">
+
+[![npm version](https://badge.fury.io/js/%40diogoccoutinho%2Fvue-international-phone.svg)](https://badge.fury.io/js/%40diogoccoutinho%2Fvue-international-phone)
+[![GitHub version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=gh&r=r&ts=1683906897&type=6e&v=0.0.28&x2=0)](https://badge.fury.io/gh/diogocoutinho%2Fvue-international-phone)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Issues](https://img.shields.io/github/issues/diogocoutinho/vue-international-phone.svg)](https://github.com/diogocoutinho/vue-international-phone/issues)
+[![Stars](https://img.shields.io/github/stars/diogocoutinho/vue-international-phone.svg)](https://github.com/diogocoutinho/vue-international-phone/stargazers)
+[![Forks](https://img.shields.io/github/forks/diogocoutinho/vue-international-phone.svg)](https://githhub.com/diogocoutinho/vue-international-phone/network/members)
+[![Github Package Registry](https://img.shields.io/badge/Github%20Package%20Registry-0.0.28-blue)](https://github.com/diogocoutinho/vue-international-phone/pkgs/npm/vue-international-phone)
+![Downloads](https://img.shields.io/npm/dt/@diogoccoutinho/vue-international-phone)
+![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
+![Last commit](https://img.shields.io/github/last-commit/diogocoutinho/vue-international-phone.svg)
+![Contributors](https://img.shields.io/github/contributors/diogocoutinho/vue-international-phone.svg)
+![Size](https://img.shields.io/github/repo-size/diogocoutinho/vue-international-phone.svg)
+![Languages](https://img.shields.io/github/languages/count/diogocoutinho/vue-international-phone.svg)
+![Top language](https://img.shields.io/github/languages/top/diogocoutinho/vue-international-phone.svg)
+![Code size](https://img.shields.io/github/languages/code-size/diogocoutinho/vue-international-phone.svg)
+[![Code Pen](https://img.shields.io/badge/Codepen-View%20Demo-blue)](https://codepen.io/diogocoutinho/pen/ZEVpBWz)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-View%20Profile-blue)](https://www.linkedin.com/in/diogoccoutinho/)
+[![Twitter](https://img.shields.io/badge/Twitter-Follow-blue)](https://twitter.com/diogoccoutinho)
+![GitHub followers](https://img.shields.io/github/followers/diogocoutinho.svg?style=social&label=Follow)
+
+</span>
+
+This is a Vue.js component that provides an international phone input with a country selector and mask. 
+
 
 <p align="center">
   <img src="https://media.licdn.com/dms/image/D4D22AQGohnpnldDduw/feedshare-shrink_2048_1536/0/1693367734357?e=1696464000&v=beta&t=op-KEocFEHs28iC5bFBdwecvFAlAtOQlFWkvq-NwdQE" alt="Funcionando 100%">
@@ -8,7 +34,7 @@ This is a Vue.js component that provides an international phone input with a cou
 
 <details>
 <summary>
-Getting Started
+    <strong>Getting Started</strong>
 </summary>
 
 ### Installation
@@ -27,7 +53,9 @@ npm install @diogoccoutinho/vue-international-phone
 </details>
 
 <details>
-<summary>Register the component</summary> 
+<summary>
+<strong>Register the component</strong>
+</summary> 
 
 #### Global Registration
 ```js
@@ -92,6 +120,7 @@ To use the Vue International Phone Input Component, import and register it in yo
 - `showFlag`: Boolean to control the visibility of the flags in the country selector. Default: true (optional).
 - `showCountryCode`: Boolean to control the visibility of the country code in the country selector. Default: true (optional).
 - `showCode`: Boolean to control the visibility of the country code in the phone number input. Default: true (optional).
+- `inputIconClass`: Custom class to style the input icon. Default: "" (optional).
 -
 ## Events
 - `update:selectedItem`: Emitted when the selected country is changed.
@@ -152,6 +181,10 @@ Be sure to add the provided CSS styles in the component to achieve the desired l
 
 ## Contribution
 Contributions are welcome! Feel free to submit pull requests or report issues.
+
+## Authors
+
+* **Diogo Coutinho** - *Initial work* - [diogoccoutinho](http://github.com.br/diogoccoutinho)
 
 ## License
 
